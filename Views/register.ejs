@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("includes/head") %>
+</head>
+<body>
+  <%- include("includes/Header") %>
+  
+  <main>
+    <form action="/register" method="POST">
+      <% if (errors.length) { %>
+        <% errors.forEach((error) => { %>
+          <p class="error"><%= error %></p>
+        <% }) %>
+      <% } %>
+
+      <fieldset>
+        <legend>Sign Up</legend>
+        <label for="username"><small>Username</small></label>
+        <input type="text" name="username" id="username" autocomplete="off">
+
+        <label for="password"><small>Password</small></label>
+        <input type="password" name="password" id="password" autocomplete="off">
+        <br />
+        <button>Sign Up</button>
+      </fieldset>
+    </form>
+  </main>
+  
+  <%- include("includes/footer") %>
+</body>
+</html>
