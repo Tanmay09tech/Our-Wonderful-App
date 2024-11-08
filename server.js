@@ -12,6 +12,8 @@
             const cookieParser = require("cookie-parser");
             //Importing express
             const express = require("express");
+            //Importing path
+            const path = require('path');
             //Create a database
             const db = require("better-sqlite3")('database.db');
             //Improve the performance of the database
@@ -56,6 +58,9 @@
             createTables();
 
             const app = express();
+
+           // Set the location of the views folder
+            app.set('views', path.join(__dirname, 'views'));
 
             app.set('view engine', 'ejs');
             app.use(express.urlencoded({ extended: true }));
@@ -426,6 +431,8 @@
             
             //
 
-          app.listen(3001, () => {
-              console.log('Server running on port 3001');
-            });
+          const port = process.env.PORT || 3001; // Use the PORT from environment variables, default to 3001 if not set
+          app.listen(port, () => {
+           console.log(`Server running on port ${port}`);
+          });
+
