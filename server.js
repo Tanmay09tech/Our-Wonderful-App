@@ -60,7 +60,7 @@
             const app = express();
 
            // Set the location of the views folder
-            app.set('Views', path.join(__dirname, 'Views'));
+            app.set('views', path.join(__dirname, 'Views'));
 
             app.set('view engine', 'ejs');
             app.use(express.urlencoded({ extended: true }));
